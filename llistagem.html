@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem</title>
+    <link rel="stylesheet" href="Styles/Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/Style.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&family=Source+Sans+3:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="icon" href="imgs/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect"  href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Fonts/DOCALLISME ON STREET.ttf">
+    <style>
+       @media (max-width: 800px){
+      }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0px;
+            color:gold
+        }
+
+        #listaItens {
+            list-style: none;
+            padding: 0;
+            text-align: center; 
+        }
+
+        #listaItens li {
+            background-color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        
+    </style>
+</head>
+
+<style div="backgroundBra">
+    body{
+        background-image: url(imgs/Champion.jpg);
+        background-size: cover; 
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        
+}
+</style>
+<body>
+    <div class="navbar">
+        <div class="header-inner-content">
+            <h1 class="logo">Furia</h1>
+            <nav>
+                <ul class="ul-major"> 
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="Elenco.html">Elenco</a></li>
+                    <li><a href="Major.html">Major</a></li>
+                    <li><a href="listagem.html">Cadastro</a></li>
+                    <li><a href="llistagem.html">Listagem</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icon-container">
+                <a href="Index.html">
+                    <img src="imgs/logo-furia.png">
+                </a>
+            </div>
+        </div> 
+    </div>  
+
+    <h1>Listagem</h1>
+    <ul id="listaItens"></ul>
+
+    <script>
+
+        const itensString = localStorage.getItem('itens');
+
+
+        const listaItens = document.getElementById('listaItens');
+
+        if (itensString) {
+
+            const itemList = JSON.parse(itensString);
+
+
+            itemList.forEach(item => {
+                const li = document.createElement('li');
+
+                li.textContent = `Nome: ${item.nome}, Descrição: ${item.descricao}`;
+                listaItens.appendChild(li);
+            });
+        } else {
+
+            listaItens.innerHTML = '<li>Nenhum item cadastrado</li>';
+        }
+    </script>
+</body>
+</html>
